@@ -1,11 +1,11 @@
 // 定義正面圖片路徑
-const frontImage = "/1009-41041212/images/food/picture0.png";
+const frontImage = "/images/food/picture0.png";
 
 // 定義食物主題的背面圖片
-const foodImages = Array.from({ length: 18 }, (_, i) => `/1009-41041212/images/food/picture${i + 1}.png`);
+const foodImages = Array.from({ length: 18 }, (_, i) => `/images/food/picture${i + 1}.png`);
 
 // 定義動物主題的背面圖片
-const animalImages = Array.from({ length: 18 }, (_, i) => `/1009-41041212/images/animals/animal${i + 1}.png`);
+const animalImages = Array.from({ length: 18 }, (_, i) => `/images/animals/animal${i + 1}.png`);
 
 let selectedImages = []; // 用來存儲當前選中的主題圖片集
 let flippedCards = []; // 存儲翻轉中的卡片
@@ -149,6 +149,7 @@ function checkMatch() {
     flippedCards = []; // 重置翻轉卡片
 }
 
+
 // 結束遊戲並顯示 SweetAlert2 彈窗
 function endGame() {
     console.log('結束遊戲函數被調用');
@@ -279,3 +280,4 @@ function resetGame() {
 document.getElementById('theme-select').addEventListener('change', resetGame);
 document.getElementById('mode-select').addEventListener('change', resetGame);
 document.getElementById('hide-completed-select').addEventListener('change', resetGame);
+
