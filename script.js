@@ -113,6 +113,10 @@ function flipCard(card) {
     }
 }
 
+// 加載聲音
+const successSound = new Audio('https://www.myinstants.com/media/sounds/tadaa.mp3');
+const failureSound = new Audio('https://www.myinstants.com/media/sounds/sad-trombone.mp3');
+
 // 檢查配對
 function checkMatch() {
     const [firstCard, secondCard] = flippedCards;
@@ -124,6 +128,7 @@ function checkMatch() {
     if (firstImage === secondImage) {
         matchedPairs++;
         console.log(`Matched pairs: ${matchedPairs} Total pairs: ${totalCards / 2}`);
+        successSound.play(); // 播放成功音效
 
         // 檢查是否所有配對都完成
         if (matchedPairs === totalCards / 2) {
@@ -139,6 +144,7 @@ function checkMatch() {
         // 如果配對不成功，將卡片翻回背面
         firstCard.classList.remove('flipped');
         secondCard.classList.remove('flipped');
+        failureSound.play(); // 播放失敗音效
     }
     flippedCards = []; // 重置翻轉卡片
 }
