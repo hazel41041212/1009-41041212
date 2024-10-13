@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片配對遊戲</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- SweetAlert2 的 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <h1>圖片配對遊戲</h1>
+    <div id="control-panel">
+        <div class="select-container">
+            <select id="theme-select">
+                <option value="">選擇主題</option>
+                <option value="food">食物</option>
+                <option value="animals">動物</option>
+            </select>
+            <select id="mode-select">
+                <option value="">選擇模式</option>
+                <option value="2x2">2x2</option>
+                <option value="4x4">4x4</option>
+                <option value="6x6">6x6</option>
+            </select>
+            <select id="hide-completed-select">
+                <option value="">選擇是否隱藏</option>
+                <option value="show">顯示完成圖片</option>
+                <option value="hide">隱藏完成圖片</option>
+            </select>   
+            <select id="countdown-select">
+                <option value="3">3秒</option>
+                <option value="5" selected>5秒</option> <!-- 預設為5秒 -->
+                <option value="10">10秒</option>
+            </select>         
+        </div>
+
+        <div class="button-container">
+            <button id="startGame" disabled>開始遊戲</button>
+            <button id="showFront" disabled>顯示正面</button>
+            <button id="showBack" disabled>顯示背面</button>
+            <button id="restartGame">重新開始</button>
+        </div>
+        
+    </div>
+
+    <div id="card-wrapper" data-mode="4x4"></div>
+    <div id="game-status"></div>
+    <div id="timer"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

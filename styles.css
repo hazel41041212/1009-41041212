@@ -1,0 +1,227 @@
+/* 與原先相同的樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e0f7fa;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 控制面板樣式，確保選擇主題和模式居中 */
+#control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平置中 */
+  justify-content: center; /* 垂直置中 */
+  text-align: center; /* 文字置中 */
+  margin-bottom: 20px;
+}
+
+#control-panel select, 
+#control-panel button {
+  margin-top: 10px;
+  font-size: 16px; /* 調整字體大小 */
+  padding: 8px 12px; /* 調整選項和按鈕的內邊距 */
+  border-radius: 5px; /* 圓角按鈕 */
+}
+
+/* 卡片容器 */
+#card-wrapper {
+  display: grid; /* 設定為grid */
+  grid-template-columns: repeat(4, 1fr); /* 默認4x4佈局 */
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.card-container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 150px;
+  height: 160px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  border-radius: 10px;
+}
+
+.card-front {
+  background-color: #b9d8f8;
+}
+
+.card-back {
+  background-color: transparent;
+  transform: rotateY(180deg);
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.matched {
+  opacity: 0; /* 配對後隱藏圖片 */
+  pointer-events: none; /* 禁用交互 */
+}
+
+.card-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* 按鈕區域置中 */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#startGame {
+  background-color: #28a745;
+}
+
+#startGame:hover {
+  background-color: #62d47b;
+  transform: scale(1.1);
+}
+
+#showFront {
+  background-color: #007bff;
+}
+
+#showFront:hover {
+  background-color: #95bde8;
+  transform: scale(1.1);
+}
+
+#showBack {
+  background-color: #dc3545;
+}
+
+#showBack:hover {
+  background-color: #cd848c;
+  transform: scale(1.1);
+}
+
+#restartGame {
+  background-color: #ce35dc;
+}
+
+#restartGame:hover {
+  background-color: #ca95c6;
+  transform: scale(1.1);
+}
+
+#game-status {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #000000;
+}
+
+#timer {
+  margin: 20px 0;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+#countdown {
+  font-size: 36px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#card-wrapper {
+  display: grid;
+  gap: 55px; /* 卡片之間的間距 */
+}
+
+.card-container {
+  width: 100px; /* 調整卡片的寬度 */
+  height: 150px; /* 調整卡片的高度 */
+}
+
+/* 根據卡片的數量設置格子的數量 */
+#card-wrapper.grid-2x2 {
+  grid-template-columns: repeat(2, 1fr); /* 2x2 格局 */
+}
+
+#card-wrapper.grid-4x4 {
+  grid-template-columns: repeat(4, 1fr); /* 4x4 格局 */
+}
+
+#card-wrapper.grid-6x6 {
+  grid-template-columns: repeat(6, 1fr); /* 6x6 格局 */
+}
+
+#control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 這個屬性可以用來調整下拉選單和按鈕間的間距 */
+}
+
+#control-panel {
+  display: flex;
+  flex-direction: column; /* 將下拉選單和按鈕排成兩行 */
+  gap: 10px; /* 下拉選單和按鈕之間的間距 */
+}
+
+.select-container, .button-container {
+  display: flex;
+  justify-content: center; /* 將元素置中 */
+  gap: 10px; /* 兩個下拉選單或按鈕之間的間距 */
+}
+
+/* 調整下拉選單和按鈕的寬度 */
+select, button {
+  min-width: 120px; /* 設定最小寬度 */
+}
+
+.card-container.matched {
+  visibility: hidden; /* 隱藏已配對的卡片 */
+  opacity: 0; /* 使卡片消失 */
+}
